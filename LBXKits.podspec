@@ -12,32 +12,32 @@ Pod::Spec.new do |s|
 
     s.subspec 'Utils' do |ss|
       ss.subspec 'Gps' do |sss|
-      sss.source_files = 'Utils/Gps/**/*.{h,m}'
+      sss.source_files = 'LBXKits/Utils/Gps/**/*.{h,m}'
       end
 
       ss.subspec 'LBXDevice' do |sss|
-      sss.source_files = 'Utils/LBXDevice/**/*.{h,m}'
+      sss.source_files = 'LBXKits/Utils/LBXDevice/**/*.{h,m}'
       end
 
       ss.subspec 'Encryption' do |sss|
-      sss.source_files = 'Utils/Encryption/**/*.{h,m}'
+      sss.source_files = 'LBXKits/Utils/Encryption/**/*.{h,m}'
       end
 
       ss.subspec 'Permissions' do |sss|
-      sss.source_files = 'Utils/Permissions/**/*.{h,m}'
+      sss.source_files = 'LBXKits/Utils/Permissions/**/*.{h,m}'
       end
 
       ss.subspec 'Regular' do |sss|
-      sss.source_files = 'Utils/Regular/**/*.{h,m}'
+      sss.source_files = 'LBXKits/Utils/Regular/**/*.{h,m}'
       end
     end
 
     s.subspec 'Categorys' do |ss|
-      s.source_files = 'Utils/Categorys/*.{h,m}'
+      ss.source_files = 'LBXKits/Utils/Categorys/*.{h,m}'
       ss.subspec 'MBProgressHUD' do |sss|
-      sss.dependency 'MBProgressHUD', '~> 0.9.2'
-      sss.source_files = 'Utils/Categorys/MBProgressHUD/*.{h,m}'
-      sss.resource     = 'Utils/Categorys/MBProgressHUD/MBProgressHUD.bundle'
+       sss.dependency 'MBProgressHUD', '~> 0.9.2'
+       sss.source_files = 'LBXKits/Utils/Categorys/MBProgressHUD/*.{h,m}'
+       sss.resource     = 'LBXKits/Utils/Categorys/MBProgressHUD/MBProgressHUD.bundle'
       end
 
     end
