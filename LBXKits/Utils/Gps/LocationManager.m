@@ -50,23 +50,6 @@
     return YES;
 }
 
-////------------------位置反编码---5.0之后使用-----------------
-//CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-//[geocoder reverseGeocodeLocation:newLocation
-//               completionHandler:^(NSArray *placemarks, NSError *error){
-//                   
-//                   for (CLPlacemark *place in placemarks) {
-//                       UILabel *label = (UILabel *)[self.window viewWithTag:101];
-//                       label.text = place.name;
-//                       NSLog(@"name,%@",place.name);                       // 位置名
-//                       //                           NSLog(@"thoroughfare,%@",place.thoroughfare);       // 街道
-//                       //                           NSLog(@"subThoroughfare,%@",place.subThoroughfare); // 子街道
-//                       //                           NSLog(@"locality,%@",place.locality);               // 市
-//                       //                           NSLog(@"subLocality,%@",place.subLocality);         // 区
-//                       //                           NSLog(@"country,%@",place.country);                 // 国家
-//                   }
-//                   
-//               }];
 
 
 //GPS
@@ -80,13 +63,12 @@
 //    kCLAuthorizationStatusDenied,
     
     
-    switch ([CLLocationManager authorizationStatus]) {
-        case kCLAuthorizationStatusRestricted:
-        case kCLAuthorizationStatusDenied:
-            break;
-            
-        default:
-            break;
+    if (![[self class]isLocationServicesEnabled] || ![[self class]isGetGpsPermission] ) {
+        
+        if (fail) {
+            fail(nil);
+        }
+        return;
     }
     
     [self stopGps];
@@ -134,8 +116,18 @@
     }
     
    
+    if ([[self class]isGetGpsPermission]) {
+     
+        [self.locationManager startUpdatingLocation];
+    }
+    else
+    {
+        if (_fail) {
+            _fail(nil);
+        }
+    }
     
-    [self.locationManager startUpdatingLocation];
+    
 }
 
 
@@ -173,13 +165,33 @@
     }
 }
 
+
+
+////------------------位置反编码---5.0之后使用-----------------
+//CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+//[geocoder reverseGeocodeLocation:newLocation
+//               completionHandler:^(NSArray *placemarks, NSError *error){
+//
+//                   for (CLPlacemark *place in placemarks) {
+//                       UILabel *label = (UILabel *)[self.window viewWithTag:101];
+//                       label.text = place.name;
+//                       NSLog(@"name,%@",place.name);                       // 位置名
+//                       //                           NSLog(@"thoroughfare,%@",place.thoroughfare);       // 街道
+//                       //                           NSLog(@"subThoroughfare,%@",place.subThoroughfare); // 子街道
+//                       //                           NSLog(@"locality,%@",place.locality);               // 市
+//                       //                           NSLog(@"subLocality,%@",place.subLocality);         // 区
+//                       //                           NSLog(@"country,%@",place.country);                 // 国家
+//                   }
+//
+//               }];
+
 /**
  @brief 转换GPS->城市名称
  @param currentLocation 当前坐标
  @param success         返回结果
  */
 + (void)converseGps:(CLLocation*) currentLocation
-         toCityName:(void (^)(NSString* cityName,NSString* address))success
+         success:(void (^)(CLPlacemark *placemark))success
                fail:(void(^)(NSError* error))fail
 {
     // 获取当前所在的城市名
@@ -190,18 +202,11 @@
          if (array.count > 0)
          {
              CLPlacemark *placemark = [array objectAtIndex:0];
-             //将获得的所有信息显示到label上
-             NSLog(@"%@",placemark.name);
              
-             NSLog(@"latitude:%lf,longtitude:%lf", placemark.location.coordinate.latitude,placemark.location.coordinate.longitude);
+             if (success) {
+                 success(placemark);
+             }
              
-             //获取城市
-             NSString *city = placemark.locality;
-             
-             NSLog(@"GPS City:%@",city);
-             
-             success(city,placemark.name);
-            
          }
          else
          {
@@ -211,6 +216,7 @@
          }
      }];
 }
+
 
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
@@ -227,9 +233,6 @@
         _fail(error);
     }
 }
-
-
-
 
 
 @end

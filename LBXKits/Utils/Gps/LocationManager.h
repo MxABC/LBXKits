@@ -52,14 +52,24 @@
  */
 - (void)startGps:(void(^)(CLLocation* currentLocation))success fail:(void(^)(NSError* error))fail;
 
+
+
 /**
- @brief 转换GPS->城市名称和地址
+ @brief 转换GPS->地点
  @param currentLocation 当前坐标
- @param success         返回转换结果
- @param fail            转换失败
+ @param success         返回结果
+ 
+ NSLog(@"name,%@",place.name);                       // 位置名,地址
+ NSLog(@"thoroughfare,%@",place.thoroughfare);       // 街道
+ NSLog(@"subThoroughfare,%@",place.subThoroughfare); // 子街道
+ NSLog(@"locality,%@",place.locality);               // 市
+ NSLog(@"subLocality,%@",place.subLocality);         // 区
+ NSLog(@"country,%@",place.country);                 // 国家
+ 
+ @param fail  转换失败
  */
 + (void)converseGps:(CLLocation*) currentLocation
-         toCityName:(void (^)(NSString* cityName,NSString* address))success
+            success:(void (^)(CLPlacemark *place))success
                fail:(void(^)(NSError* error))fail;
 
 

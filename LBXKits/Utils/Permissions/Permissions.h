@@ -14,6 +14,8 @@
  注：app运行期间设置里面更改相关权限，会导致app崩溃是系统造成的，待测试捕获异常看是否会仍然会导致app崩溃。
  
  GPS权限 在LocationManager中处理
+ 
+ ref:https://github.com/jlaws/JLPermissions
  */
 @interface Permissions : NSObject
 

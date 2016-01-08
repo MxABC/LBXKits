@@ -141,6 +141,8 @@
 
 + (NSString*)getDeviceName
 {
+    //根据这个链接里面的资料，可以转换
+    //https://www.theiphonewiki.com/wiki/Models
     return [Hardware  platform];
 }
 

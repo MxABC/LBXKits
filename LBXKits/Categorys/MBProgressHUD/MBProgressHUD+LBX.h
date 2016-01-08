@@ -1,9 +1,9 @@
 //
 //  MBProgressHUD+LBX.h
-//  Demo
+//  
 //
-//  Created by csc on 16/1/7.
-//  Copyright © 2016年 csc. All rights reserved.
+//  Created by lbxia on 16/1/7.
+//  Copyright © 2016年 lbxia. All rights reserved.
 //
 
 #import "MBProgressHUD.h"
