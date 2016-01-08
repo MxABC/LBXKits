@@ -33,11 +33,11 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'Categorys' do |ss|
-      ss.source_files = 'LBXKits/Utils/Categorys/*.{h,m}'
+      ss.source_files = 'LBXKits/Categorys/*.{h,m}'
       ss.subspec 'MBProgressHUD' do |sss|
        sss.dependency 'MBProgressHUD', '~> 0.9.2'
-       sss.source_files = 'LBXKits/Utils/Categorys/MBProgressHUD/*.{h,m}'
-       sss.resource     = 'LBXKits/Utils/Categorys/MBProgressHUD/MBProgressHUD.bundle'
+       sss.source_files = 'LBXKits/Categorys/MBProgressHUD/*.{h,m}'
+       sss.resource     = 'LBXKits/Categorys/MBProgressHUD/MBProgressHUD.bundle'
       end
 
     end
