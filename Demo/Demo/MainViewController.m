@@ -33,26 +33,26 @@
 }
 - (IBAction)testHud:(id)sender {
     
-   // [self hud1];
+    [self hud1];
     
 //    [self waitingHud];
     
    // [Permissions isGetCameraPermission];
     
-    UIButton *btn = sender;
-    
-    [btn setBackgroundColor:[UIColor blueColor]];
-    
-    [Permissions getCameraPermission:^(BOOL allowed) {
-       
-        NSLog(@"%d",allowed);
-        
-        if (!allowed) {
-            
-            [Permissions openPermissionSetting];
-        }
-        
-    }];
+//    UIButton *btn = sender;
+//    
+//    [btn setBackgroundColor:[UIColor blueColor]];
+//    
+//    [Permissions getCameraPermission:^(BOOL allowed) {
+//       
+//        NSLog(@"%d",allowed);
+//        
+//        if (!allowed) {
+//            
+//            [Permissions openPermissionSetting];
+//        }
+//        
+//    }];
 //
 //    [Permissions getPhotoPermission:^(BOOL allowed) {
 //       

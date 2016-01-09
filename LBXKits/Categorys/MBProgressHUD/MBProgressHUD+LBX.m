@@ -60,7 +60,7 @@
 + (void)showErrorMessage:(NSString *)error onView:(UIView *)view{
    // [self show:error icon:@"error.png" view:view];
     
-    UIImage *icon = [UIImage imageNamed:@"MBProgressHUD.bundle/error.png"];
+    UIImage *icon = [UIImage imageNamed:@"MBProgressHUD.bundle/error"];
     
     [self showHudWithMessage:error icon:icon onView:view];
 }
@@ -69,14 +69,14 @@
 {
     // [self show:error icon:@"error.png" view:view];
     
-    UIImage *icon = [UIImage imageNamed:@"MBProgressHUD.bundle/error.png"];
+    UIImage *icon = [UIImage imageNamed:@"MBProgressHUD.bundle/error"];
     
     [self showHudWithMessage:error icon:icon onView:view afterDelay:delay];
 }
 
 + (void)showErrorMessage:(NSString *)error onView:(UIView *)view afterDelay:(NSTimeInterval)delay finish:(void(^)())block
 {
-    UIImage *icon = [UIImage imageNamed:@"MBProgressHUD.bundle/error.png"];
+    UIImage *icon = [UIImage imageNamed:@"MBProgressHUD.bundle/error"];
     
     [self showHudWithMessage:error icon:icon onView:view afterDelay:delay];
     
@@ -90,7 +90,7 @@
 + (void)showSuccessMessage:(NSString *)success onView:(UIView *)view{
     // [self show:error icon:@"error.png" view:view];
     
-    UIImage *icon = [UIImage imageNamed:@"MBProgressHUD.bundle/success.png"];
+    UIImage *icon = [UIImage imageNamed:@"MBProgressHUD.bundle/success"];
     
     [self showHudWithMessage:success icon:icon onView:view];
 }
@@ -98,7 +98,7 @@
 + (void)showSuccessMessage:(NSString *)success onView:(UIView *)view afterDelay:(NSTimeInterval)delay{
     // [self show:error icon:@"error.png" view:view];
     
-    UIImage *icon = [UIImage imageNamed:@"MBProgressHUD.bundle/success.png"];
+    UIImage *icon = [UIImage imageNamed:@"MBProgressHUD.bundle/success"];
     
     [self showHudWithMessage:success icon:icon onView:view afterDelay:delay];
 }
@@ -106,7 +106,7 @@
 + (void)showSuccessMessage:(NSString *)success onView:(UIView *)view afterDelay:(NSTimeInterval)delay finish:(void(^)())block{
     // [self show:error icon:@"error.png" view:view];
     
-    UIImage *icon = [UIImage imageNamed:@"MBProgressHUD.bundle/success.png"];
+    UIImage *icon = [UIImage imageNamed:@"MBProgressHUD.bundle/success"];
     
     [self showHudWithMessage:success icon:icon onView:view afterDelay:delay];
     
@@ -119,14 +119,14 @@
 
 + (void)showTipMessage:(NSString*)message onView:(UIView*)view
 {
-    UIImage *icon = [UIImage imageNamed:@"MBProgressHUD.bundle/error.png"];
+    UIImage *icon = [UIImage imageNamed:@"MBProgressHUD.bundle/info"];
     
     [self showHudWithMessage:message icon:icon onView:view];
 }
 
 + (void)showTipMessage:(NSString*)message onView:(UIView*)view afterDelay:(NSTimeInterval)delay
 {
-    UIImage *icon = [UIImage imageNamed:@"MBProgressHUD.bundle/error.png"];
+    UIImage *icon = [UIImage imageNamed:@"MBProgressHUD.bundle/info"];
     
     [self showHudWithMessage:message icon:icon onView:view afterDelay:delay];
 }

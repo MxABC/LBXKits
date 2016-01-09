@@ -24,6 +24,8 @@
  */
 
 @interface LocationManager : NSObject
+
+//存储Gps坐标，短时间内容，建议直接使用该坐标即可
 @property(nonatomic,assign)double longtitude;
 @property(nonatomic,assign)double latitude;
 
