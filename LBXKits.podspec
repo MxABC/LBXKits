@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = 'LBXKits'
-    s.version      = '0.1.0'
+    s.version      = '0.1.1'
     s.summary      = 'common use code kits'
     s.homepage     = 'https://github.com/MxABC'
     s.license      = 'MIT'
